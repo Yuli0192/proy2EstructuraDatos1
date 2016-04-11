@@ -21,6 +21,7 @@ using namespace std;
 class ListaVIP {
 private:
     int longitud; //Longitud de la lista
+    string tipoArea;
     double precioAsiento;
     NodoAsiento *cabeza; //Puntero al primero de la lista
 public:

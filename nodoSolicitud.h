@@ -13,18 +13,21 @@
 #ifndef NODOSOLICITUD_H
 #define NODOSOLICITUD_H
 #include <string>
+#include "nodoAsiento.h"
 using namespace std;
 
 class NodoSolicitud {
 private:
-    int numero; //Elemento de la lista
+    NodoAsiento* asientoReservado;
     string tipoArea;
     NodoSolicitud *sig; //Siguiente elemento, es el puntero autoreferenciable
-    
+
 public:
-    NodoSolicitud(string tipoArea); //Constructora
+    NodoSolicitud(string tipoArea, NodoAsiento* asientoReservado); //Constructora
     string getTipoArea(void); //Analizadora
     void setTipoArea(string tipoArea); //Modificadora
+    NodoAsiento * getAsientoReservado(void); //Analizadora
+    void setAsientoReservado(NodoAsiento *); //Modificadora
     NodoSolicitud * getSig(void); //Analizadora
     void setSig(NodoSolicitud *); //Modificadora
 };
