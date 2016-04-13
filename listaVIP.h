@@ -34,7 +34,8 @@ public:
     void setTipoArea(string tipoArea); //Modificadora
     void setPrecio(double precio); //Modificadora
     void setCabeza(NodoAsiento *); //Modificadora
-    bool escogerAsiento(Asiento asiento); //Modificadora
+    bool escogerAsiento(int asiento, int estado); //Modificadora
+    bool insertarAsiento(Asiento asiento);
 };
 
 #endif /* LISTAVIP_H */
