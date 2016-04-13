@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="97">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>asiento.h</itemPath>
+      <itemPath>listaEspera.h</itemPath>
+      <itemPath>listaGeneral.h</itemPath>
+      <itemPath>listaPreferencial.h</itemPath>
+      <itemPath>listaSolicitud.h</itemPath>
+      <itemPath>listaVIP.h</itemPath>
+      <itemPath>nodoAsiento.h</itemPath>
+      <itemPath>nodoEspera.h</itemPath>
+      <itemPath>nodoPila.h</itemPath>
+      <itemPath>nodoSolicitud.h</itemPath>
+      <itemPath>pilaAsiento.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+      <itemPath>asiento.cpp</itemPath>
+      <itemPath>listaEspera.cpp</itemPath>
+      <itemPath>listaGeneral.cpp</itemPath>
+      <itemPath>listaPreferencial.cpp</itemPath>
+      <itemPath>listaSolicitud.cpp</itemPath>
+      <itemPath>listaVIP.cpp</itemPath>
+      <itemPath>nodoAsiento.cpp</itemPath>
+      <itemPath>nodoEspera.cpp</itemPath>
+      <itemPath>nodoPila.cpp</itemPath>
+      <itemPath>nodoSolicitud.cpp</itemPath>
+      <itemPath>pilaAsiento.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>main.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+      </compileType>
+      <item path="asiento.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="asiento.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="listaEspera.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="listaEspera.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="listaGeneral.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="listaGeneral.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="listaPreferencial.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="listaPreferencial.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="listaSolicitud.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="listaSolicitud.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="listaVIP.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="listaVIP.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="nodoAsiento.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="nodoAsiento.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="nodoEspera.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="nodoEspera.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="nodoPila.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="nodoPila.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="nodoSolicitud.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="nodoSolicitud.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="pilaAsiento.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="pilaAsiento.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="asiento.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="asiento.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="listaEspera.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="listaEspera.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="listaGeneral.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="listaGeneral.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="listaPreferencial.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="listaPreferencial.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="listaSolicitud.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="listaSolicitud.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="listaVIP.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="listaVIP.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="nodoAsiento.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="nodoAsiento.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="nodoEspera.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="nodoEspera.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="nodoPila.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="nodoPila.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="nodoSolicitud.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="nodoSolicitud.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="pilaAsiento.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="pilaAsiento.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
