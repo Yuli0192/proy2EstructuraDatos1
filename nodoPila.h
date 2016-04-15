@@ -19,13 +19,13 @@ using namespace std;
 
 class NodoPila {
 private:
-    PilaAsiento pila; //Elemento de la lista
+    PilaAsiento *pila; //Elemento de la lista
     NodoPila *sig; //Siguiente elemento, es el puntero autoreferenciable
     NodoPila *ant;
 public:
-    NodoPila(PilaAsiento pila); //Constructora
-    PilaAsiento getPila(void); //Analizadora
-    void setPila(PilaAsiento pila); //Modificadora
+    NodoPila(PilaAsiento *); //Constructora
+    PilaAsiento * getPila(void); //Analizadora
+    void setPila(PilaAsiento *); //Modificadora
     NodoPila * getSig(void); //Analizadora
     NodoPila * getAnt(void);
     void setSig(NodoPila *); //Modificadora

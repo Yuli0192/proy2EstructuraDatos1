@@ -9,7 +9,8 @@
 
 using namespace std;
 
-PilaAsiento::PilaAsiento() { //Constructora
+PilaAsiento::PilaAsiento(int pnumPila) { //Constructora
+    numPila = pnumPila;
     longitud = 0;
     tope = NULL;
 }
@@ -19,6 +20,9 @@ int PilaAsiento::getLongitud(void) const { //Analizadora
 }
 
 bool PilaAsiento::pushElemento(Asiento pelem) { //Modificadora
+    if(longitud == 10){
+        return false;
+    }
     NodoAsiento * nuevo;
     nuevo = new NodoAsiento(pelem);
 
@@ -54,5 +58,9 @@ bool PilaAsiento::popElemento() {
     } else {
         return false;
     }
+}
+
+int PilaAsiento::getNumPila(){
+    return numPila;
 }
 
