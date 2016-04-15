@@ -9,18 +9,18 @@
 using namespace std;
 
 
-NodoPila::NodoPila(PilaAsiento ppilaAsiento) { //Constructora
+NodoPila::NodoPila(PilaAsiento *ppilaAsiento) { //Constructora
     pila = ppilaAsiento;
     sig = NULL;
     ant = NULL;
 }
 
-void NodoPila::setPila(PilaAsiento ppilaAsiento) //Modificadora
+void NodoPila::setPila(PilaAsiento *ppilaAsiento) //Modificadora
 {
     pila = ppilaAsiento;
 }
 
-PilaAsiento NodoPila::getPila(void) //Analizadora
+PilaAsiento *NodoPila::getPila(void) //Analizadora
 {
     return pila;
 }

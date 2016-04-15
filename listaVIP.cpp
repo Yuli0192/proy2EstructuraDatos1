@@ -37,9 +37,14 @@ bool ListaVIP::escogerAsiento(int numAsiento, int estado) //Modificadora
         NodoAsiento *aux = cabeza;
         while(aux){
             if(aux->getAsiento().getNumAsiento() == numAsiento){
-                aux->getAsiento().setEstado(estado);
-                cout << "EXITO: La operación fue realizada satisfactoriamente!" << endl;
-                return true;
+                if(aux->getAsiento().getEstado() == 0){
+                    Asiento asiento = Asiento(aux->getAsiento().getNumAsiento(), estado);
+                    aux->setAsiento(asiento);
+                    cout << "EXITO: La operación fue realizada satisfactoriamente!" << endl;
+                    return true;
+                }
+                cout << "INFO: Este asiento ya ha sido reservado..." << endl;
+                return false;
             }
             aux = aux->getSig();
         }

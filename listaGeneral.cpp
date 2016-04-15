@@ -34,7 +34,26 @@ void ListaGeneral::setTipoArea(string ptipoArea){
 
 bool ListaGeneral::insertarAsiento(Asiento pasiento) //Modificadora
 {
-
+    if(longitud == 50){
+        cout << "INFO: Ya no quedan asientos disponibles!" << endl;
+        return false;
+    }
+    NodoAsiento * nuevo = new NodoAsiento(pasiento);
+    if(nuevo == NULL){
+        return false;
+    }
+    if(cabeza == NULL){
+        cabeza = nuevo;
+    }else{
+        NodoAsiento *aux = cabeza;
+        while(aux){
+            if(!aux->getSig()){
+                aux->setSig(nuevo);
+            }
+            aux = aux->getSig();
+        }
+    }
+    longitud++;
+    cout << "EXITO: La operación fue realizada satisfactoriamente!" << endl;
     return true;
-
 }

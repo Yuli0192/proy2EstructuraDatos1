@@ -31,9 +31,38 @@ void ListaPreferencial::setTipoArea(string ptipoArea){
     tipoArea = ptipoArea;
 }
 
-bool ListaPreferencial::escogerHilera(PilaAsiento ppila) //Modificadora
+bool ListaPreferencial::escogerHilera(int numPila) //Modificadora
 {
+    if(numPila > 0 && numPila <= 10){
+        NodoPila *aux = cabeza;
+        while(aux){
+            if(aux->getPila()->getNumPila() == numPila){
+                Asiento a = Asiento(0, 1); //el numero de asiento no se ocupa en la pila xq no se puede escoger
+                if(aux->getPila()->pushElemento(a)){
+                    cout << "EXITO: La operación fue realizada satisfactoriamente!" << endl;
+                    return true;
+                }
+                cout << "INFO: Ya no quedan asientos para esta fila..." << endl;
+                return false;
+            }
+            aux = aux->getSig();
+        }
+    }
+    cout << "ERROR: Ingrese un número de fila válido..." << endl;
+    return false;
+}
 
+bool ListaPreferencial::insertarPila(PilaAsiento *ppila){
+    NodoPila *nuevo = new NodoPila(ppila);
+    if(nuevo == NULL){
+        return false;
+    }
+    if(cabeza == NULL){
+        cabeza = nuevo;
+    }else{
+        nuevo->setSig(cabeza);
+        cabeza = nuevo;
+    }
+    longitud++;
     return true;
-
 }

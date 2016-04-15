@@ -19,16 +19,18 @@ using namespace std;
 
 class PilaAsiento {
 private:
+    int numPila;
     int longitud; //Longitud de la pila
     NodoAsiento *tope; //Puntero al primero de la pila
 public:
-    PilaAsiento(void); //Constructora
+    PilaAsiento(int); //Constructora
     int getLongitud(void) const; //Analizadora
     NodoAsiento * getTope(void) const; //Analizadora
     void setLongitud(int l); //Modificadora
     void setTope(NodoAsiento *); //Modificadora
     bool pushElemento(Asiento a);
     bool popElemento();
+    int getNumPila(void);
 };   
 #endif /* PILAASIENTO_H */
 

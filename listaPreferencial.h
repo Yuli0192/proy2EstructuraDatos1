@@ -34,7 +34,8 @@ public:
     void setTipoArea(string tipoArea); //Modificadora
     void setPrecio(double precio); //Modificadora
     void setCabeza(NodoPila *); //Modificadora
-    bool escogerHilera(PilaAsiento pila); //Modificadora
+    bool escogerHilera(int); //Modificadora
+    bool insertarPila(PilaAsiento*);
 };
 
 #endif /* LISTAPREFERENCIA_H */

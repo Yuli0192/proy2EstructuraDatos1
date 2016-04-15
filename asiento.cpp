@@ -24,6 +24,6 @@ void Asiento::setNumAsiento(int numeroAsiento){ //Modificadora
 int Asiento::getEstado(void){ //Analizadora
     return estado;
 }
-void Asiento::setEstado(int estado){ //Modificadora
-    estado = estado;
+void Asiento::setEstado(int pestado){ //Modificadora
+    estado = pestado;
 }

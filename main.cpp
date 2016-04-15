@@ -14,6 +14,8 @@
 #include "listaPreferencial.h"
 #include "listaVIP.h"
 #include "asiento.h"
+#include "pilaAsiento.h"
+#include "listaGeneral.h"
 using namespace std;
 
 void menuPrincipal(void);
@@ -27,22 +29,42 @@ int main(void) {
         Asiento asiento = Asiento(i, 0); //0 libre, 1 reservado, 2 ocupado
         zonaVIP->insertarAsiento(asiento);
     }
+    //Crear las pilas de asientos preferenciales
+    ListaPreferencial *preferencial = new ListaPreferencial(35000);
+    for(int i=1; i <= 10; i ++){
+        PilaAsiento *pila = new PilaAsiento(i);
+        preferencial->insertarPila(pila);
+    }
+    //Crear ls lista de asientos generales
+    ListaGeneral *zonaGeneral = new ListaGeneral(20000);
+
     int opcion;
     bool continuar = true;
     cout << "BOLETARÍA VIRTUAL" << endl;
     while(continuar){
         menuPrincipal();
         cin >> opcion;
+        mostrarTeatro();
         if(opcion == 1){
             int zona;
             selecZona();
             cin >> zona;
             if(zona == 1){
                 int numAsiento;
-                mostrarTeatro(); 
+                cout << "Digite el número de asiento: ";
                 cin >> numAsiento;
-                zonaVIP->escogerAsiento(numAsiento, 0);
-                return 1;
+                zonaVIP->escogerAsiento(numAsiento, 1); //1 de reservado
+            }
+            if(zona == 2){
+                int numFila;
+                cout << "Digite el número de fila: ";
+                cin >> numFila;
+                preferencial->escogerHilera(numFila);
+            }
+            if(zona == 3){
+                int numAsiento = zonaGeneral->getLongitud();
+                Asiento a = Asiento(numAsiento+1, 1);
+                zonaGeneral->insertarAsiento(a);
             }
         }
     }
@@ -64,6 +86,7 @@ void selecZona(){
     cout << "Digite el número de zona: ";
 }
 
+
 void mostrarTeatro(){
     cout << endl;
     cout << " ________________________________________ " << endl;
@@ -84,6 +107,4 @@ void mostrarTeatro(){
     cout << "| 40| 39| 38| 37| 36| 35| 34| 33| 32| 31 |" << endl;
     cout << "| 41| 42| 43| 44| 45| 46| 47| 48| 49| 50 |" << endl;
     cout << "|________________________________________|" << endl;
-    cout << endl;
-    cout << "Digite el número de asiento: ";
 }
