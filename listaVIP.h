@@ -23,6 +23,7 @@ private:
     int longitud; //Longitud de la lista
     string tipoArea;
     double precioAsiento;
+    double montoTotal;
     NodoAsiento *cabeza; //Puntero al primero de la lista
 public:
     ListaVIP(double precioAsiento); //Constructora
@@ -34,8 +35,10 @@ public:
     void setTipoArea(string tipoArea); //Modificadora
     void setPrecio(double precio); //Modificadora
     void setCabeza(NodoAsiento *); //Modificadora
-    bool escogerAsiento(int asiento, int estado); //Modificadora
+    bool escogerAsiento(int); //Modificadora
     bool insertarAsiento(Asiento asiento);
+    bool pagarAsiento(int);
+    bool liberarAsiento(int);
 };
 
 #endif /* LISTAVIP_H */

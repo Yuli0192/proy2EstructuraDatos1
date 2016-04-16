@@ -13,6 +13,7 @@ ListaVIP::ListaVIP(double precio) { //Constructora
     tipoArea = "Lista VIP";
     cabeza = NULL;
     precioAsiento = precio;
+    montoTotal = 0;
 }
 
 int ListaVIP::getLongitud(void) const { //Analizadora
@@ -31,14 +32,14 @@ void ListaVIP::setTipoArea(string ptipoArea){
     tipoArea = ptipoArea;
 }
 
-bool ListaVIP::escogerAsiento(int numAsiento, int estado) //Modificadora
+bool ListaVIP::escogerAsiento(int numAsiento) //Modificadora
 {
     if(numAsiento > 0 && numAsiento <= 10){
         NodoAsiento *aux = cabeza;
         while(aux){
             if(aux->getAsiento().getNumAsiento() == numAsiento){
                 if(aux->getAsiento().getEstado() == 0){
-                    Asiento asiento = Asiento(aux->getAsiento().getNumAsiento(), estado);
+                    Asiento asiento = Asiento(aux->getAsiento().getNumAsiento(), 1);
                     aux->setAsiento(asiento);
                     cout << "EXITO: La operación fue realizada satisfactoriamente!" << endl;
                     return true;
@@ -66,4 +67,51 @@ bool ListaVIP::insertarAsiento(Asiento pasiento) {
     }
     longitud++;
     return true;
+}
+
+bool ListaVIP::pagarAsiento(int numAsiento){
+    if(numAsiento > 0 && numAsiento <= 10){
+        NodoAsiento *aux = cabeza;
+        while(aux){
+            if(aux->getAsiento().getNumAsiento() == numAsiento){
+                if(aux->getAsiento().getEstado() == 1){
+                    Asiento asiento = Asiento(aux->getAsiento().getNumAsiento(), 2);
+                    aux->setAsiento(asiento);
+                    montoTotal = montoTotal + precioAsiento;
+                    cout << "EXITO: La operación fue realizada satisfactoriamente!" << endl;
+                    return true;
+                }
+                cout << "INFO: Ud no tiene reservación para este asiento..." << endl;
+                return false;
+            }
+            aux = aux->getSig();
+        }
+    }
+    cout << "ERROR: Ingrese un número de asiento válido..." << endl;
+    return false;
+}
+
+bool ListaVIP::liberarAsiento(int numAsiento){
+    if(numAsiento > 0 && numAsiento <= 10){
+        NodoAsiento *aux = cabeza;
+        while(aux){
+            if(aux->getAsiento().getNumAsiento() == numAsiento){
+                int estadoActual = aux->getAsiento().getEstado();
+                if(estadoActual == 1 || estadoActual == 2){
+                    Asiento asiento = Asiento(aux->getAsiento().getNumAsiento(), 0);
+                    aux->setAsiento(asiento);
+                    if(estadoActual == 2){
+                        montoTotal = montoTotal - precioAsiento;
+                    }
+                    cout << "EXITO: La operación fue realizada satisfactoriamente!" << endl;
+                    return true;
+                }
+                cout << "INFO: Ud no tiene reservación para este asiento..." << endl;
+                return false;
+            }
+            aux = aux->getSig();
+        }
+    }
+    cout << "ERROR: Ingrese un número de asiento válido..." << endl;
+    return false;
 }
