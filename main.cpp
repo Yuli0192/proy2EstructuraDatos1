@@ -38,7 +38,7 @@ int main(void) {
     //Crear ls lista de asientos generales
     ListaGeneral *zonaGeneral = new ListaGeneral(20000);
 
-    int opcion;
+    int opcion, zona, numFila, numAsiento;
     bool continuar = true;
     cout << "BOLETARÍA VIRTUAL" << endl;
     while(continuar){
@@ -46,25 +46,52 @@ int main(void) {
         cin >> opcion;
         mostrarTeatro();
         if(opcion == 1){
-            int zona;
             selecZona();
             cin >> zona;
             if(zona == 1){
-                int numAsiento;
                 cout << "Digite el número de asiento: ";
                 cin >> numAsiento;
-                zonaVIP->escogerAsiento(numAsiento, 1); //1 de reservado
+                zonaVIP->escogerAsiento(numAsiento); //1 de reservado
             }
             if(zona == 2){
-                int numFila;
                 cout << "Digite el número de fila: ";
                 cin >> numFila;
                 preferencial->escogerHilera(numFila);
             }
             if(zona == 3){
-                int numAsiento = zonaGeneral->getLongitud();
+                numAsiento = zonaGeneral->getLongitud();
                 Asiento a = Asiento(numAsiento+1, 1);
                 zonaGeneral->insertarAsiento(a);
+            }
+        }
+        if(opcion == 2){
+            selecZona();
+            cin >> zona;
+            cout << "Digite el número de su asiento: ";
+            cin >> numAsiento;
+            if(zona == 1){
+                zonaVIP->pagarAsiento(numAsiento);
+            }
+            if(zona == 2){
+                //pendiente
+            }
+            if(zona == 3){
+                zonaGeneral->pagarAsiento(numAsiento);
+            }
+        }
+        if(opcion == 3){
+            selecZona();
+            cin >> zona;
+            cout << "Digite el número de su asiento: ";
+            cin >> numAsiento;
+            if(zona == 1){
+                zonaVIP->liberarAsiento(numAsiento);
+            }
+            if(zona == 2){
+                //pendiente
+            }
+            if(zona == 3){
+                zonaGeneral->liberarAsiento(numAsiento);
             }
         }
     }

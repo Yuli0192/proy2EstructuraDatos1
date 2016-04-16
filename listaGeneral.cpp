@@ -14,6 +14,7 @@ ListaGeneral::ListaGeneral(double precio) { //Constructora
     tipoArea = "Lista General";
     cabeza = NULL;
     precioAsiento = precio;
+    montoTotal = 0;
 }
 
 int ListaGeneral::getLongitud(void) const { //Analizadora
@@ -44,16 +45,74 @@ bool ListaGeneral::insertarAsiento(Asiento pasiento) //Modificadora
     }
     if(cabeza == NULL){
         cabeza = nuevo;
+        longitud++;
+        cout << "EXITO: Ha reservado el asiento #" << longitud << endl;
+        return true;
     }else{
         NodoAsiento *aux = cabeza;
         while(aux){
             if(!aux->getSig()){
                 aux->setSig(nuevo);
+                nuevo->setAnt(aux);
+                longitud++;
+                cout << "EXITO: Ha reservado el asiento #" << longitud << endl;
+                return true;
             }
             aux = aux->getSig();
         }
     }
-    longitud++;
-    cout << "EXITO: La operación fue realizada satisfactoriamente!" << endl;
-    return true;
 }
+
+bool ListaGeneral::pagarAsiento(int numAsiento){
+    if(numAsiento > 0 && numAsiento <= 10){
+        NodoAsiento *aux = cabeza;
+        while(aux){
+            if(aux->getAsiento().getNumAsiento() == numAsiento){
+                if(aux->getAsiento().getEstado() == 1){
+                    Asiento asiento = Asiento(aux->getAsiento().getNumAsiento(), 2);
+                    aux->setAsiento(asiento);
+                    montoTotal = montoTotal + precioAsiento;
+                    cout << "EXITO: La operación fue realizada satisfactoriamente!" << endl;
+                    return true;
+                }
+                cout << "INFO: Ud no tiene reservación para este asiento..." << endl;
+                return false;
+            }
+            aux = aux->getSig();
+        }
+    }
+    cout << "ERROR: Ingrese un número de asiento válido..." << endl;
+    return false;
+}
+
+bool ListaGeneral::liberarAsiento(int numAsiento){
+    if(numAsiento > 0 && numAsiento <= 50){
+        NodoAsiento *aux = cabeza;
+        while(aux){
+            if(aux->getAsiento().getNumAsiento() == numAsiento){
+                int estadoActual = aux->getAsiento().getEstado();
+                if(estadoActual == 1 || estadoActual == 2){
+                    if(numAsiento == 1){
+                        cabeza->setSig(aux->getSig());
+                    }else{
+                        aux->getAnt()->setSig(aux->getSig());
+                    }
+                    aux = NULL;
+                    delete aux;
+                    if(estadoActual == 2){
+                        montoTotal = montoTotal - precioAsiento;
+                    }
+                    longitud--;
+                    cout << "EXITO: La operación fue realizada satisfactoriamente!" << endl;
+                    return true;
+                }
+                cout << "INFO: Ud no tiene reservación para este asiento..." << endl;
+                return false;
+            }
+            aux = aux->getSig();
+        }
+    }
+    cout << "ERROR: Ingrese un número de asiento válido..." << endl;
+    return false;
+}
+

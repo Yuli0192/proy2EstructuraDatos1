@@ -23,6 +23,7 @@ private:
     int longitud; //Longitud de la lista
     string tipoArea;
     double precioAsiento;
+    double montoTotal;
     NodoAsiento *cabeza; //Puntero al primero de la lista
 public:
     ListaGeneral(double precioAsiento); //Constructora
@@ -35,6 +36,8 @@ public:
     void setPrecio(double precio); //Modificadora
     void setCabeza(NodoAsiento *); //Modificadora
     bool insertarAsiento(Asiento asiento); //Modificadora
+    bool pagarAsiento(int);
+    bool liberarAsiento(int);
 };
 
 
