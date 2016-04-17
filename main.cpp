@@ -67,30 +67,44 @@ int main(void) {
         if(opcion == 2){
             selecZona();
             cin >> zona;
-            cout << "Digite el número de su asiento: ";
-            cin >> numAsiento;
             if(zona == 1){
+                cout << "Digite el número de su asiento: ";
+                cin >> numAsiento;
                 zonaVIP->pagarAsiento(numAsiento);
             }
             if(zona == 2){
-                //pendiente
+                int numPila;
+                cout << "Digite el número de fila: ";
+                cin >> numPila;
+                cout << "Digite el número de su asiento: ";
+                cin >> numAsiento;
+                preferencial->pagarAsiento(numPila, numAsiento);
             }
             if(zona == 3){
+                cout << "Digite el número de su asiento: ";
+                cin >> numAsiento;
                 zonaGeneral->pagarAsiento(numAsiento);
             }
         }
         if(opcion == 3){
             selecZona();
             cin >> zona;
-            cout << "Digite el número de su asiento: ";
-            cin >> numAsiento;
             if(zona == 1){
+                cout << "Digite el número de su asiento: ";
+                cin >> numAsiento;
                 zonaVIP->liberarAsiento(numAsiento);
             }
             if(zona == 2){
-                //pendiente
+                int numPila;
+                cout << "Digite el número de fila: ";
+                cin >> numPila;
+                cout << "Digite el número de su asiento: ";
+                cin >> numAsiento;
+                preferencial->liberarAsiento(numPila, numAsiento);
             }
             if(zona == 3){
+                cout << "Digite el número de su asiento: ";
+                cin >> numAsiento;
                 zonaGeneral->liberarAsiento(numAsiento);
             }
         }
