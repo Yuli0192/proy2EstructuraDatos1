@@ -23,6 +23,7 @@ private:
     int longitud; //Longitud de la lista
     string tipoArea;
     double precioAsiento;
+    double montoTotal;
     NodoPila *cabeza; //Puntero al primero de la lista
 public:
     ListaPreferencial(double precioAsiento); //Constructora
@@ -36,6 +37,8 @@ public:
     void setCabeza(NodoPila *); //Modificadora
     bool escogerHilera(int); //Modificadora
     bool insertarPila(PilaAsiento*);
+    bool pagarAsiento(int, int);
+    bool liberarAsiento(int, int);
 };
 
 #endif /* LISTAPREFERENCIA_H */
