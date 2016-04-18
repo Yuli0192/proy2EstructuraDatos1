@@ -139,12 +139,16 @@ bool ListaPreferencial::liberarAsiento(int numPila, int numAsiento){
 
 int ListaPreferencial::contarAsientosVendidos(void){
     int numAsientosVendidos = 0;
-
+    
     NodoPila *aux = cabeza;
     while (aux) {
         PilaAsiento *pilaAux = aux->getPila();
-        if (pilaAux->getTope()->getAsiento().getEstado() == 2) {
-            numAsientosVendidos++;
+        NodoAsiento *asientoAux = pilaAux->getTope();
+        while(asientoAux){
+            if (asientoAux->getAsiento().getEstado() == 2) {
+                numAsientosVendidos++;
+            }
+            asientoAux = asientoAux->getSig();
         }
         aux = aux->getSig();
     }

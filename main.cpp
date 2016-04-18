@@ -139,7 +139,7 @@ int main(void) {
             cout << "Monto recaudado: ₡" << zonaVIP->getMontoTotal() << endl;
             cout << "" << endl;
             cout << "Preferencial:" << endl; 
-            //cout << "Número de localidaes vendidas:" << preferencial->contarAsientosVendidos() << endl; 
+            cout << "Número de localidaes vendidas:" << preferencial->contarAsientosVendidos() << endl; 
             cout << "Monto recaudado: ₡"<< preferencial->getMontoTotal() << endl;
             cout << "" << endl;
             cout << "General:" << endl; 
