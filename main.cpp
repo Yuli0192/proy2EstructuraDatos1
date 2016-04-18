@@ -37,7 +37,10 @@ int main(void) {
     }
     //Crear ls lista de asientos generales
     ListaGeneral *zonaGeneral = new ListaGeneral(20000);
-
+    
+    //Bandera para indicar el inicio de funcion
+    bool funcionIniciada = false;
+    
     int opcion, zona, numFila, numAsiento;
     bool continuar = true;
     cout << "BOLETARÍA VIRTUAL" << endl;
@@ -45,68 +48,108 @@ int main(void) {
         menuPrincipal();
         cin >> opcion;
         mostrarTeatro();
-        if(opcion == 1){
-            selecZona();
-            cin >> zona;
-            if(zona == 1){
-                cout << "Digite el número de asiento: ";
-                cin >> numAsiento;
-                zonaVIP->escogerAsiento(numAsiento); //1 de reservado
+        if (opcion == 1) {
+            if (!funcionIniciada) {
+                selecZona();
+                cin >> zona;
+                if (zona == 1) {
+                    cout << "Digite el número de asiento: ";
+                    cin >> numAsiento;
+                    zonaVIP->escogerAsiento(numAsiento); //1 de reservado
+                }
+                if (zona == 2) {
+                    cout << "Digite el número de fila: ";
+                    cin >> numFila;
+                    preferencial->escogerHilera(numFila);
+                }
+                if (zona == 3) {
+                    numAsiento = zonaGeneral->getLongitud();
+                    Asiento a = Asiento(numAsiento + 1, 1);
+                    zonaGeneral->insertarAsiento(a);
+                }
+            } else {
+                cout << "" << endl;
+                cout << "La función ya inició, la boletería está cerrada." << endl;
             }
-            if(zona == 2){
-                cout << "Digite el número de fila: ";
-                cin >> numFila;
-                preferencial->escogerHilera(numFila);
-            }
-            if(zona == 3){
-                numAsiento = zonaGeneral->getLongitud();
-                Asiento a = Asiento(numAsiento+1, 1);
-                zonaGeneral->insertarAsiento(a);
+
+        }
+        if (opcion == 2) {
+            if (!funcionIniciada) {
+                selecZona();
+                cin >> zona;
+                if (zona == 1) {
+                    cout << "Digite el número de su asiento: ";
+                    cin >> numAsiento;
+                    zonaVIP->pagarAsiento(numAsiento);
+                }
+                if (zona == 2) {
+                    int numPila;
+                    cout << "Digite el número de fila: ";
+                    cin >> numPila;
+                    cout << "Digite el número de su asiento: ";
+                    cin >> numAsiento;
+                    preferencial->pagarAsiento(numPila, numAsiento);
+                }
+                if (zona == 3) {
+                    cout << "Digite el número de su asiento: ";
+                    cin >> numAsiento;
+                    zonaGeneral->pagarAsiento(numAsiento);
+                }
+
+            } else {
+                cout << "" << endl;
+                cout << "La función ya inició, la boletería está cerrada." << endl;
             }
         }
-        if(opcion == 2){
-            selecZona();
-            cin >> zona;
-            if(zona == 1){
-                cout << "Digite el número de su asiento: ";
-                cin >> numAsiento;
-                zonaVIP->pagarAsiento(numAsiento);
-            }
-            if(zona == 2){
-                int numPila;
-                cout << "Digite el número de fila: ";
-                cin >> numPila;
-                cout << "Digite el número de su asiento: ";
-                cin >> numAsiento;
-                preferencial->pagarAsiento(numPila, numAsiento);
-            }
-            if(zona == 3){
-                cout << "Digite el número de su asiento: ";
-                cin >> numAsiento;
-                zonaGeneral->pagarAsiento(numAsiento);
+        if (opcion == 3) {
+            if (!funcionIniciada) {
+                selecZona();
+                cin >> zona;
+                if (zona == 1) {
+                    cout << "Digite el número de su asiento: ";
+                    cin >> numAsiento;
+                    zonaVIP->liberarAsiento(numAsiento);
+                }
+                if (zona == 2) {
+                    int numPila;
+                    cout << "Digite el número de fila: ";
+                    cin >> numPila;
+                    cout << "Digite el número de su asiento: ";
+                    cin >> numAsiento;
+                    preferencial->liberarAsiento(numPila, numAsiento);
+                }
+                if (zona == 3) {
+                    cout << "Digite el número de su asiento: ";
+                    cin >> numAsiento;
+                    zonaGeneral->liberarAsiento(numAsiento);
+                }
+            } else {
+                cout << "" << endl;
+                cout << "La función ya inició, la boletería está cerrada." << endl;
             }
         }
-        if(opcion == 3){
-            selecZona();
-            cin >> zona;
-            if(zona == 1){
-                cout << "Digite el número de su asiento: ";
-                cin >> numAsiento;
-                zonaVIP->liberarAsiento(numAsiento);
-            }
-            if(zona == 2){
-                int numPila;
-                cout << "Digite el número de fila: ";
-                cin >> numPila;
-                cout << "Digite el número de su asiento: ";
-                cin >> numAsiento;
-                preferencial->liberarAsiento(numPila, numAsiento);
-            }
-            if(zona == 3){
-                cout << "Digite el número de su asiento: ";
-                cin >> numAsiento;
-                zonaGeneral->liberarAsiento(numAsiento);
-            }
+        if(opcion == 4){
+            funcionIniciada = true;
+            cout << "" << endl;
+            cout << "La función está en progreso" << endl;
+            cout << "" << endl;
+            cout << "Desglose de ocupación y total recaudado por localidad:" << endl;
+            cout << "VIP:" << endl;
+            cout << "Número de localidaes vendidas: " << zonaVIP->contarAsientosVendidos() << endl; 
+            cout << "Monto recaudado: ₡" << zonaVIP->getMontoTotal() << endl;
+            cout << "" << endl;
+            cout << "Preferencial:" << endl; 
+            cout << "Número de localidaes vendidas:" << preferencial->contarAsientosVendidos() << endl; 
+            cout << "Monto recaudado: ₡"<< preferencial->getMontoTotal() << endl;
+            cout << "" << endl;
+            cout << "General:" << endl; 
+            cout << "Número de localidaes vendidas: " << zonaGeneral->contarAsientosVendidos() << endl;  
+            cout << "Monto recaudado: ₡" << zonaGeneral->getMontoTotal()<< endl;
+            cout << "" << endl;
+            cout << "Totales:" << endl;
+            cout << "Total de localidades vendidas: " << zonaVIP->contarAsientosVendidos() /*+ preferencial->contarAsientosVendidos()*/ + zonaGeneral->contarAsientosVendidos() << endl;
+            cout << "Total recaudado en localidades vendidas: ₡" << zonaVIP->getMontoTotal() + preferencial->getMontoTotal() + zonaGeneral->getMontoTotal() << endl;
+            cout << "" << endl;
         }
     }
 }
@@ -116,6 +159,7 @@ void menuPrincipal(){
     cout << "1. Realizar reservación" << endl;
     cout << "2. Pagar reservación" << endl;
     cout << "3. Liberar reservación" << endl;
+    cout << "4. Iniciar función" << endl;
     cout << "Seleccione una opción: ";
 }
 

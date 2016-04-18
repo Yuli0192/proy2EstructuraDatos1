@@ -28,6 +28,10 @@ NodoPila *ListaPreferencial::getCabeza()const {
     return this->cabeza;
 }
 
+double ListaPreferencial::getMontoTotal(void) const { //Analizadora
+    return montoTotal;
+}
+
 void ListaPreferencial::setTipoArea(string ptipoArea){
     tipoArea = ptipoArea;
 }
@@ -131,4 +135,23 @@ bool ListaPreferencial::liberarAsiento(int numPila, int numAsiento){
         }
     }
     cout << "ERROR: Ingrese un número de fila o asiento válido...";
+}
+
+int ListaPreferencial::contarAsientosVendidos(void){
+    int numAsientosVendidos = 0;
+    
+    NodoPila *aux = cabeza;
+    while (aux) {
+        PilaAsiento *pilaAux = aux->getPila();
+        NodoAsiento *asientoAux = pilaAux->getTope();
+        while(asientoAux){
+            if (asientoAux->getAsiento().getEstado() == 2) {
+                numAsientosVendidos++;
+            }
+            asientoAux = asientoAux->getSig();
+        }
+        aux = aux->getSig();
+    }
+    
+    return numAsientosVendidos;
 }
