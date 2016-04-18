@@ -108,6 +108,28 @@ int main(void) {
                 zonaGeneral->liberarAsiento(numAsiento);
             }
         }
+        if(opcion == 4){
+            cout << "" << endl;
+            cout << "La función está comenzando" << endl;
+            cout << "" << endl;
+            cout << "Desglose de ocupación y total recaudado por localidad:" << endl;
+            cout << "VIP:" << endl;
+            cout << "Número de localidaes vendidas: " << zonaVIP->contarAsientosVendidos() << endl; 
+            cout << "Monto recaudado: ₡" << zonaVIP->getMontoTotal() << endl;
+            cout << "" << endl;
+            cout << "Preferencial:" << endl; 
+            //cout << "Número de localidaes vendidas:" << preferencial->contarAsientosVendidos() << endl; 
+            cout << "Monto recaudado: ₡"<< preferencial->getMontoTotal() << endl;
+            cout << "" << endl;
+            cout << "General:" << endl; 
+            cout << "Número de localidaes vendidas: " << zonaGeneral->contarAsientosVendidos() << endl;  
+            cout << "Monto recaudado: ₡" << zonaGeneral->getMontoTotal()<< endl;
+            cout << "" << endl;
+            cout << "Totales:" << endl;
+            cout << "Total de localidades vendidas: " << zonaVIP->contarAsientosVendidos() /*+ preferencial->contarAsientosVendidos()*/ + zonaGeneral->contarAsientosVendidos() << endl;
+            cout << "Total recaudado en localidades vendidas: ₡" << zonaVIP->getMontoTotal() + preferencial->getMontoTotal() + zonaGeneral->getMontoTotal() << endl;
+            cout << "" << endl;
+        }
     }
 }
 
@@ -116,6 +138,7 @@ void menuPrincipal(){
     cout << "1. Realizar reservación" << endl;
     cout << "2. Pagar reservación" << endl;
     cout << "3. Liberar reservación" << endl;
+    cout << "4. Iniciar función" << endl;
     cout << "Seleccione una opción: ";
 }
 

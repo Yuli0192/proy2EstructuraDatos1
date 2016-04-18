@@ -29,6 +29,10 @@ NodoAsiento *ListaGeneral::getCabeza()const {
     return this->cabeza;
 }
 
+double ListaGeneral::getMontoTotal(void) const { //Analizadora
+    return montoTotal;
+}
+
 void ListaGeneral::setTipoArea(string ptipoArea){
     tipoArea = ptipoArea;
 }
@@ -116,3 +120,16 @@ bool ListaGeneral::liberarAsiento(int numAsiento){
     return false;
 }
 
+int ListaGeneral::contarAsientosVendidos(void){
+    int numAsientosVendidos = 0;
+
+    NodoAsiento *aux = cabeza;
+    while (aux) {
+        if (aux->getAsiento().getEstado() == 2) {
+            numAsientosVendidos++;
+        }
+        aux = aux->getSig();
+    }
+    
+    return numAsientosVendidos;
+}

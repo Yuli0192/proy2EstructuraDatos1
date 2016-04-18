@@ -30,6 +30,7 @@ public:
     int getLongitud(void) const; //Analizadora
     string getTipoArea(void) const; //Analizadora
     double getPrecioAsiento(void) const; //Analizadora
+    double getMontoTotal(void) const; //Analizadora
     NodoPila * getCabeza(void) const; //Analizadora
     void setLongitud(int l); //Modificadora
     void setTipoArea(string tipoArea); //Modificadora
@@ -39,6 +40,7 @@ public:
     bool insertarPila(PilaAsiento*);
     bool pagarAsiento(int, int);
     bool liberarAsiento(int, int);
+    int contarAsientosVendidos(void);
 };
 
 #endif /* LISTAPREFERENCIA_H */

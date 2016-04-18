@@ -28,6 +28,10 @@ NodoAsiento *ListaVIP::getCabeza()const {
     return this->cabeza;
 }
 
+double ListaVIP::getMontoTotal(void) const { //Analizadora
+    return montoTotal;
+}
+
 void ListaVIP::setTipoArea(string ptipoArea){
     tipoArea = ptipoArea;
 }
@@ -114,4 +118,18 @@ bool ListaVIP::liberarAsiento(int numAsiento){
     }
     cout << "ERROR: Ingrese un número de asiento válido..." << endl;
     return false;
+}
+
+int ListaVIP::contarAsientosVendidos(void){
+    int numAsientosVendidos = 0;
+
+    NodoAsiento *aux = cabeza;
+    while (aux) {
+        if (aux->getAsiento().getEstado() == 2) {
+            numAsientosVendidos++;
+        }
+        aux = aux->getSig();
+    }
+    
+    return numAsientosVendidos;
 }

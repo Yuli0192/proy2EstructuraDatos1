@@ -30,6 +30,7 @@ public:
     int getLongitud(void) const; //Analizadora
     string getTipoArea(void) const; //Analizadora
     double getPrecioAsiento(void) const; //Analizadora
+    double getMontoTotal(void) const; //Analizadora
     NodoAsiento * getCabeza(void) const; //Analizadora
     void setLongitud(int l); //Modificadora
     void setTipoArea(string tipoArea); //Modificadora
@@ -39,6 +40,7 @@ public:
     bool insertarAsiento(Asiento asiento);
     bool pagarAsiento(int);
     bool liberarAsiento(int);
+    int contarAsientosVendidos(void);
 };
 
 #endif /* LISTAVIP_H */
